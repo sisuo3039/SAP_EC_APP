@@ -1,0 +1,119 @@
+<ion-view view-title="Activity">
+    <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in">
+        <div class="card">
+            <div class="item item-text-wrap">
+                <strong>Eric</strong> How are you feel today? "
+            </div>
+            <div class="list">
+                <div class="item range range-positive">
+                    <i class="icon ion-ios-rainy-outline"></i>
+                    <input type="range" name="volume" min="0" max="100" value="33">
+                    <i class="icon ion-ios-sunny-outline"></i>
+                </div>
+            </div>
+        </div>
+        <div class="item card-item">
+            <div ui-sref="app.gallery" class="card stable-bg ink ink-dark">
+                <div class="item item-avatar item-text-wrap">
+                    <span class="avatar" style="background-image: url('img/yixiaosong.png');"></span>
+                    <strong>Yixiao</strong> knows nothing.
+                    <div class="card-footer text-right">
+                        <i class="icon ion-chatbubbles positive"></i> 6
+                        <i class="icon ion-heart assertive"></i> 23
+                        <div class="pull-left">
+                            <i class="icon ion-clock"></i> just now
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item card-item">
+            <div ui-sref="app.gallery" class="card stable-bg ink ink-dark">
+                <div class="item item-avatar item-text-wrap">
+                    <span class="avatar" style="background-image: url('img/Mani.png');"></span>
+                    <strong>Mani</strong> says "I will work out 2 hour tomorrow "
+                    <div class="card-footer text-right">
+                        <i class="icon ion-chatbubble positive"></i> 2
+                        <i class="icon ion-heart assertive"></i> 4
+                        <div class="pull-left">
+                            <i class="icon ion-clock"></i> 12 mins ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="list card">
+
+            <div class="item item-avatar">
+                <img src="img/nin_logo.jpg">
+                <h2><strong>Mani</strong> shared with you</h2>
+                <h3>Pretty Hate Machine</h3>
+                <p>Nine Inch Nails</p>
+            </div>
+
+            <div class="item item-image">
+                <img src="img/HateHachinecover.jpg">
+            </div>
+
+            <a class="item item-icon-left assertive" href="#">
+                <i class="icon ion-music-note"></i>
+                Start listening
+            </a>
+            <ion-list>
+
+                <ion-checkbox ng-model="filter.blue">Like?</ion-checkbox>
+                <ion-checkbox ng-model="filter.yellow">Nope</ion-checkbox>
+                <ion-checkbox ng-model="filter.pink">Shares?</ion-checkbox>
+
+            </ion-list>
+
+        </div>
+
+        <div class="card">
+            <div class="item item-text-wrap">
+                <strong>Bin Duan</strong> say"Pingpong with me at 5 Today? "
+            </div>
+            <ion-list>
+                <ion-checkbox ng-model="filter">Go</ion-checkbox>
+                <ion-checkbox ng-model="filter.blue1">Rain Check</ion-checkbox>
+            </ion-list>
+        </div>
+        <div class="card">
+            <div class="item item-text-wrap">
+                <strong>Feifei Wang</strong> Shared a video, Join me for Yoga ?
+            </div>
+            <ion-list>
+                <div class="card">
+                    <ion-item>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/wyVM1evRxNw" frameborder="0" width="560" height="315"></iframe>
+                        </div>
+                    </ion-item>
+            </ion-list>
+        </div>
+
+
+        <div class="item card-item">
+            <div ui-sref="app.gallery" class="card stable-bg ink ink-dark">
+                <div class="item item-avatar item-text-wrap">
+                    <span class="avatar" style="background-image: url('img/Gustavo.png');"></span>
+                    <strong>Gusravo</strong> added a photo <strong> </strong> ...
+                    <a class="image"><img src="img/Gustavo.png">
+                    </a>
+                    <a class="image"><img src="img/redeem/bootcamp.jpg">
+                    <!--</a>-->
+                    <!--<a class="image"><img src="img/sansa-snowcastle3.jpg">-->
+                    <!--</a>-->
+                    <div class="card-footer text-right">
+                        <i class="icon ion-chatbubble positive"></i> 2
+                        <i class="icon ion-heart assertive"></i> 4
+                        <div class="pull-left">
+                            <i class="icon ion-clock"></i> 3 hrs ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

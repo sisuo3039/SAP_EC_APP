@@ -1,0 +1,63 @@
+<ion-view view-title="Profile">
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+        <div class="hero slide-up" style="background-image: url('img/sap_bg.jpg');">
+            <div class="content">
+                <div class="avatar" style="background-image: url('img/eric.jpg');"></div>
+                <h3><a class="light">Eric Stark</a></h3>
+                <p>S.Crop.,model employee</p>
+                <h4> Point 780 |  Program 12 </h4>
+            </div>
+        </div>
+        <div class="tabs tabs-positive tabs-icon-top static">
+            <a ui-sref="app.activity" class="tab-item">
+                <i class="icon ion-arrow-graph-up-right"></i> Activity
+            </a>
+            <a ui-sref="app.friends" class="tab-item">
+                <i class="icon ion-android-people"></i> Friends
+            </a>
+            <a ui-sref="app.gallery" class="tab-item">
+                <i class="icon ion-images"></i> Explore
+            </a>
+        </div>
+
+        <h4 class="content padding double-padding-x">Following</h4>
+        <div class="list animate-fade-slide-in-right">
+            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+                <img src="img/binduan.png">
+                <h2>Bin Duan</h2>
+                <p>Point 780 |  Program 12 </p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+                <img src="img/yixiaosong.png">
+                <h2>Yixiao Song</h2>
+                <p>Point 780 |  Program 1 </p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+                <img src="img/armando.png">
+                <h2>Armando Chavez</h2>
+                <p>Point 500 |  Program 12 </p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+                <img src="img/Mani.png">
+                <h2>Mani Kak</h2>
+                <p>Point 1200 |  Program 15 </p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+                <img src="img/Gustavo.png">
+                <h2>Gustavo Tamae Kakazu</h2>
+                <p>Point 500 |  Program 1 </p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+            <a ui-sref="app.friends" class="item item-avatar item-icon-right">
+                <img src="img/wangfeifei.jpg">
+                <h2>Feifei Wang</h2>
+                <p>Point 700 |  Program 10 </p>
+                <i class="icon ion-chatbubble muted"></i>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

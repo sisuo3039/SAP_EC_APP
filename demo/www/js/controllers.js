@@ -86,7 +86,13 @@ angular.module('starter.controllers', [])
         }
     };
 })
-
+    .controller('BackCtrl', function($scope, $timeout, $stateParams, ionicMaterialInk) {
+        $scope.$parent.clearFabs();
+        $timeout(function() {
+            $scope.$parent.hideHeader();
+        }, 0);
+        ionicMaterialInk.displayEffect();
+    })
 .controller('LoginCtrl', function($scope, $timeout, $stateParams, ionicMaterialInk) {
     $scope.$parent.clearFabs();
     $timeout(function() {
@@ -155,6 +161,25 @@ angular.module('starter.controllers', [])
     // Activate ink for controller
     ionicMaterialInk.displayEffect();
 })
+    .controller('ModalCtrl', function($scope, $ionicModal) {
+
+        $scope.contacts = [
+            { name: 'Gordon Freeman' },
+            { name: 'Barney Calhoun' },
+            { name: 'Lamarr the Headcrab' },
+        ];
+
+        $ionicModal.fromTemplateUrl('templates/modal.html', {
+            scope: $scope
+        }).then(function(modal) {
+            $scope.modal = modal;
+        });
+
+        $scope.createContact = function(u) {
+            $scope.contacts.push({ name: u.firstName + ' ' + u.lastName });
+            $scope.modal.hide();
+        };
+    })
 
 .controller('GalleryCtrl', function($scope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion) {
     $scope.$parent.showHeader();

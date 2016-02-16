@@ -23,7 +23,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
     // Turn off caching for demo simplicity's sake
-    $ionicConfigProvider.views.maxCache(0);
+   // $ionicConfigProvider.views.maxCache(0);
 
     /*
     // Turn off back button text
@@ -90,6 +90,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
             }
         }
     })
+        .state('app.welcomeback', {
+            url: '/welcomeback',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/welcomeback.html',
+                    controller: 'BackCtrl'
+                },
+                'fabContent': {
+                    template: '<button id="fab-gallery" class="button button-fab button-fab-top-right expanded button-energized-900 drop"><i class="icon ion-heart"></i></button>',
+                    controller: function ($timeout) {
+                        $timeout(function () {
+                            document.getElementById('fab-gallery').classList.toggle('on');
+                        }, 600);
+                    }
+                }
+            }
+        })
 
     .state('app.login', {
         url: '/login',
@@ -121,8 +138,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
             }
         }
     })
+        .state('app.join', {
+            url: '/join',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/join.html',
+                    controller: 'joineCtrl'
+                },
+                'fabContent': {
+                    template: '<button id="fab-profile" class="button button-fab button-fab-bottom-right button-energized-900"><i class="icon ion-plus"></i></button>',
+                    controller: function ($timeout) {
+                        /*$timeout(function () {
+                         document.getElementById('fab-profile').classList.toggle('on');
+                         }, 800);*/
+                    }
+                }
+            }
+        })
     ;
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/login');
+    $urlRouterProvider.otherwise('/app/welcomeback');
 });

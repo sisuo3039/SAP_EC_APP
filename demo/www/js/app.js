@@ -109,17 +109,29 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
         })
 
     .state('app.login', {
-        url: '/login',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/login.html',
-                controller: 'LoginCtrl'
-            },
-            'fabContent': {
-                template: ''
+            url: '/login',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/login.html',
+                    controller: 'LoginCtrl'
+                },
+                'fabContent': {
+                    template: ''
+                }
             }
-        }
-    })
+        })
+        .state('app.feel', {
+            url: '/feel',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/feel.html',
+                    controller: 'BackCtrl'
+                },
+                'fabContent': {
+                    template: ''
+                }
+            }
+        })
 
     .state('app.profile', {
         url: '/profile',
@@ -158,5 +170,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
     ;
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/welcomeback');
+    $urlRouterProvider.otherwise('/app/login');
 });

@@ -664,7 +664,7 @@
 .card-item.item {
   border: none;
   padding-bottom: 4px;
-  padding-top: 4px; }
+  padding-top: 4px;  }
 
 .card-item.item:first-child {
   padding-top: 16px; }

@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'ionMdInput'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'ionMdInput','highcharts-ng'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -90,6 +90,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
             }
         }
     })
+        .state('app.redeem', {
+            url: '/redeem',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/redeem.html',
+                    controller: 'GalleryCtrl'
+                },
+                'fabContent': {
+                    template: '<button id="fab-gallery" class="button button-fab button-fab-bottom-right expanded button-energized-900 drop"><i class="icon ion-heart"></i></button>',
+                    controller: function ($timeout) {
+                        $timeout(function () {
+                            document.getElementById('fab-gallery').classList.toggle('on');
+                        }, 600);
+                    }
+                }
+            }
+        })
         .state('app.welcomeback', {
             url: '/welcomeback',
             views: {
@@ -184,6 +201,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
                 }
             }
         })
+        .state('app.dash', {
+            url: '/dash',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/dash.html',
+                    controller: 'dashCtrl'
+                }
+            }
+        });
     ;
 
     // if none of the above states are matched, use this as the fallback

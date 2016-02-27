@@ -1,0 +1,127 @@
+<ion-view view-title="Redeem" style="background-image: url('img/prototype/sap_app_bg.jpg');background-size:cover;" >
+    <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in" >
+        <div class="tabs tabs-balanced tabs-icon-top static" >
+            <a ui-sref="app.profile" class="tab-item">
+                <i class="icon ion-cash"></i> Cash
+            </a>
+            <a ui-sref="app.profile" class="tab-item">
+                <i class="icon ion-ios-box-outline"></i> Gift
+            </a>
+            <a ui-sref="app.profile" class="tab-item">
+                <i class="icon ion-ios-glasses-outline"></i> Research
+            </a>
+            <a ui-sref="app.profile" class="tab-item">
+                <i class="icon ion-ios-heart-outline"></i> Charity
+            </a>
+
+        </div>
+        <div class="list " >
+            <div class="list">
+
+                <div ui-sref="app.profile" class="card card-gallery item item-text-wrap">
+                    <div class="ink dark-bg">
+                        <img class="full-image" src="img/redeem/airzoom.jpg">
+                        <h2>Redeem Air Zoom Running Shoes?
+                            <strike>120 Point</strike> 100 Point!</h2>
+                    </div>
+                    <div class="item tabs tabs-secondary tabs-icon-left">
+                        <a class="tab-item stable-bg assertive">
+                            <i class="icon ion-heart"></i>
+                            4
+                        </a>
+                        <a class="tab-item light-bg positive-900">
+                            <i class="icon ion-chatbubbles"></i>
+                            2
+                        </a>
+                    </div>
+                </div>
+                <div ui-sref="app.profile" class="card card-gallery item item-text-wrap">
+                    <div class="ink dark-bg">
+
+                        <img class="full-image" src="img/redeem/yogamat.jpg">
+                        <h2>Redeem Yoga Mate? <strike>60 Point</strike> <strong>  40 Point!</strong></h2>
+                    </div>
+                    <div class="item tabs tabs-secondary tabs-icon-left">
+                        <a class="tab-item stable-bg assertive">
+                            <i class="icon ion-heart"></i>
+                            6
+                        </a>
+                        <a class="tab-item stable-bg positive-900">
+                            <i class="icon ion-chatbubbles"></i>
+                            1
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+<script id="templates/modal.html" type="text/ng-template ">
+    <ion-modal-view style="background-image: url('img/prototype/sap_app_bg.jpg');background-size:cover;" >
+        <ion-header-bar class="bar bar-header bar-balanced">
+            <!--<h1 >Group Detail</h1>-->
+            <!--<a class="button icon-left ion-chevron-left button-clear button-dark">Back</a>-->
+            <button class="button icon-left ion-chevron-left button-clear button-dark "  ng-click="modal.hide()"></button>
+        </ion-header-bar>
+
+        <ion-content class="padding">
+            <div class="ink dark-bg">
+                <img class="full-image" src="img/redeem/bootcamp.jpg">
+                <!--<h2><strong>Join Bootcamp right now</strong> </h2>-->
+            </div>
+            <div class="card">
+                <div class="item item-text-wrap">
+                    <h2>Walk Your Way to Health</h2>
+                    <h3 class="ink-float">Because of your high risk of<strong> paternity level </strong> submitted a week ago</h3>
+                    <h3>280+ Joined</h3>
+                    <h3 style="border-style: solid" >Jul 20,2015 - Aug 14,2015</h3>
+                </div>
+            </div>
+            <div class="card">
+                <div class="item item-divider" href="#">
+                    <h3>Reviews</h3>
+                </div>
+            </div>
+            <div class="card">
+                <div class="item item-text-wrap" href="#">
+                    <h3>Program Details</h3>
+                    <h4>Hey you - step away from your computer ,smart phone or TV screen and start moving! Compete with others and watch your step count grow.</h4>
+                </div>
+            </div>
+            <div class="card">
+                <div class="item item-text-wrap" href="#">
+                    <h3>Rewards</h3>
+                    <h4>1. 200 points for grand winner.</h4>
+                    <h4>1. 100 points for participants with 100,00 steps.</h4>
+                </div>
+            </div>
+
+            <div class="card">
+
+                <div class="item item-divider">
+                    <h3>Recommended App</h3>
+                </div>
+
+            </div>
+
+            <button class="button button-full button-positive" ng-click="modal.hide()">
+                Join
+            </button>
+            <!--<div class="list">-->
+            <!--<label class="item item-input">-->
+            <!--<span class="input-label">First Name</span>-->
+            <!--<input ng-model="newUser.firstName" type="text">-->
+            <!--</label>-->
+            <!--<label class="item item-input">-->
+            <!--<span class="input-label">Last Name</span>-->
+            <!--<input ng-model="newUser.lastName" type="text">-->
+            <!--</label>-->
+            <!--<label class="item item-input">-->
+            <!--<span class="input-label">Email</span>-->
+            <!--<input ng-model="newUser.email" type="text">-->
+            <!--</label>-->
+            <!--<button class="button button-full button-positive" ng-click="createContact(newUser)">Create</button>-->
+            <!--</div>-->
+        </ion-content>
+    </ion-modal-view>
+</script>

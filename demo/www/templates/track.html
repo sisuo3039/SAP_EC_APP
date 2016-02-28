@@ -1,0 +1,143 @@
+<ion-view view-title="Track">
+    <ion-content ng-class="{expanded:$scope.isExpanded}" style="background-image: url('img/prototype/sap_app_bg.jpg');">
+
+        <!--<div class="hero slide-up" style="background-image: url('img/prototype/sap_app_bg.jpg');">-->
+        <!--<div class="content">-->
+        <!--<div class="avatar" style="background-image: url('img/eric.jpg');"></div>-->
+        <!--<h3><a class="light">Eric Stark</a></h3>-->
+        <!--<p>S.Crop.,model employee</p>-->
+        <!--<h4 style="color: #0074d6"> Point 780 |  Program 12 </h4>-->
+        <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">-->
+        <!--<div class="tabs">-->
+        <!--<a class="tab-item active" href="#">-->
+        <!--<i class="icon ion-home"></i>-->
+        <!--Test-->
+        <!--</a>-->
+        <!--<a class="tab-item" href="#">-->
+        <!--<i class="icon ion-star"></i>-->
+        <!--Favorites-->
+        <!--</a>-->
+        <!--<a class="tab-item" href="#">-->
+        <!--<i class="icon ion-gear-a"></i>-->
+        <!--Settings-->
+        <!--</a>-->
+        <!--</div>-->
+        <!--</div>-->
+        <div class="tabs tabs-positive tabs-icon-top static" >
+            <a class="tab-item active"  class="tab-item">
+                <i class="icon ion-arrow-graph-up-right"></i> Track
+            </a>
+            <a class="tab-item " ui-sref="app.gallery" class="tab-item">
+                <i class="icon ion-ios-bookmarks"></i> Explore
+            </a>
+            <a class="tab-item" ui-sref="app.redeem" class="tab-item">
+                <i class="icon ion-android-checkmark-circle"></i> Redeem
+            </a>
+            <!--<a class="tab-item" ui-sref="app.friends" class="tab-item">-->
+            <!--<i class="icon ion-android-people"></i> Friends-->
+            <!--</a>-->
+
+        </div>
+
+        <!--<h4 class="content padding double-padding-x">Following</h4>-->
+        <div class="list animate-fade-slide-in-right">
+
+
+            <div ng-controller="ModalCtrl" class="card">
+                <div class="item item-divider" ng-click="modal.show()">
+                    <div class="centerfont">
+                        <!--<i class="icon ion-earth"></i>-->
+                        <h2>Walk your way to Health</h2>
+                    </div>
+                    <div class="centerfont">
+                        <!--<i class="icon ion-earth"></i>-->
+                        <h3>100 steps Left | 200 Point Gained</h3>
+                    </div>
+
+                    <div class="item item-divider ">
+
+                    </div>
+
+                </div>
+                <div class="item item-text-wrap" >
+
+
+                    <highchart config="chartPie" class="Chartcenter"></highchart>
+                    <div class="centerfont">
+                        <!--<i class="icon ion-earth"></i>-->
+                        <h4>Rank: #65</h4>
+                    </div>
+                </div>
+
+            </div>
+
+    </ion-content>
+    <script id="templates/modal.html" type="text/ng-template ">
+        <ion-modal-view style="background-image: url('img/prototype/sap_app_bg.jpg');background-size:cover;" >
+            <ion-header-bar class="bar bar-header bar-balanced">
+                <!--<h1 >Group Detail</h1>-->
+                <!--<a class="button icon-left ion-chevron-left button-clear button-dark">Back</a>-->
+                <button class="button icon-left ion-chevron-left button-clear button-dark "  ng-click="modal.hide()"></button>
+            </ion-header-bar>
+
+            <ion-content class="padding">
+                <div class="ink dark-bg">
+                    <img class="full-image" src="img/redeem/walkyourway.jpg">
+                    <!--<h2><strong>Join Bootcamp right now</strong> </h2>-->
+                </div>
+                <div class="card">
+                    <div class="item item-text-wrap">
+                        <h2>Walk Your Way to Health</h2>
+                        <a class="item item-icon-left item-text-wrap" >
+                            <i class="icon ion-person"></i>
+                            <h3>280+ Joined</h3>
+                        </a>
+                        <a class="item item-icon-left item-text-wrap" >
+                            <i class="icon ion-calendar"></i>
+                            <h3>Jul 20,2015 - Aug 14,2015</h3>
+                            <h4><strong>6 days: 12 hours: 19 minutes</strong> Left</h4>
+                        </a>
+                        <a class="item item-icon-left item-text-wrap" >
+                            <i class="icon ion-eye"></i>
+                            <h3>Insights</h3>
+                            <h4>I walked more steps than...</h4>
+                            <h4 ><strong style="color: #1bb556">5 </strong> people in my team(10 joined)</h4>
+                            <h4 ><strong style="color: #1bb556">79 </strong> people in my age group(150 joined)</h4>
+
+
+                        </a>
+                        <a class="item  item-icon-right item-text-wrap" ui-sref="app.friends" ng-click="modal.hide()">
+                            <h3>Steps  </h3>
+                            <p> 70,000 Steps,Rank #65</p>
+                            <i class="icon ion-arrow-right-b" ></i>
+                        </a>
+                        <a class="item  item-icon-right item-text-wrap" ui-sref="app.activity" ng-click="modal.hide()">
+                            <h3>Group  </h3>
+                            <i class="icon ion-arrow-right-b" ></i>
+                        </a>
+                        <a class="item  item-icon-right " >
+                            <h3>Reviews  </h3>
+                            <i class="icon ion-ios-star ion-ios-star ion-ios-star ion-ios-star"></i>
+                        </a>
+                        <a class="item  item-icon-right item-text-wrap" >
+                            <h3>Program Details  </h3>
+                            <p> Hey you -step away from your computer,smart phone or TV screen and start moving! Compete with others and watch
+                            your step count grow</p>
+                            <i class="icon ion-arrow-right-b"></i>
+                        </a>
+                        <a class="item  item-icon-right item-text-wrap" >
+                            <h3>Recommended App </h3>
+                            <p> Fitbit , Endomondo</p>
+                            <i class="icon ion-arrow-right-b"></i>
+                        </a>
+
+
+
+                    </div>
+                </div>
+            </ion-content>
+        </ion-modal-view>
+</ion-view>

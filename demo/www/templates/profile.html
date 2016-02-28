@@ -1,27 +1,44 @@
 <ion-view view-title="Home">
     <ion-content ng-class="{expanded:$scope.isExpanded}" style="background-image: url('img/prototype/sap_app_bg.jpg');">
 
-        <div class="hero slide-up" style="background-image: url('img/prototype/sap_app_bg.jpg');">
-            <div class="content">
-                <div class="avatar" style="background-image: url('img/eric.jpg');"></div>
-                <h3><a class="light">Eric Stark</a></h3>
-                <p>S.Crop.,model employee</p>
-                <h4 style="color: #0074d6"> Point 780 |  Program 12 </h4>
-            </div>
-        </div>
+        <!--<div class="hero slide-up" style="background-image: url('img/prototype/sap_app_bg.jpg');">-->
+            <!--<div class="content">-->
+                <!--<div class="avatar" style="background-image: url('img/eric.jpg');"></div>-->
+                <!--<h3><a class="light">Eric Stark</a></h3>-->
+                <!--<p>S.Crop.,model employee</p>-->
+                <!--<h4 style="color: #0074d6"> Point 780 |  Program 12 </h4>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">-->
+            <!--<div class="tabs">-->
+                <!--<a class="tab-item active" href="#">-->
+                    <!--<i class="icon ion-home"></i>-->
+                    <!--Test-->
+                <!--</a>-->
+                <!--<a class="tab-item" href="#">-->
+                    <!--<i class="icon ion-star"></i>-->
+                    <!--Favorites-->
+                <!--</a>-->
+                <!--<a class="tab-item" href="#">-->
+                    <!--<i class="icon ion-gear-a"></i>-->
+                    <!--Settings-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="tabs tabs-positive tabs-icon-top static" >
-            <a ui-sref="app.activity" class="tab-item">
-                <i class="icon ion-arrow-graph-up-right"></i> Activity
+            <a class="tab-item " ui-sref="app.track" class="tab-item">
+                <i class="icon ion-arrow-graph-up-right"></i> Track
             </a>
-            <a ui-sref="app.gallery" class="tab-item">
+            <a class="tab-item " ui-sref="app.gallery" class="tab-item">
                 <i class="icon ion-ios-bookmarks"></i> Explore
             </a>
-            <a ui-sref="app.redeem" class="tab-item">
+            <a class="tab-item" ui-sref="app.redeem" class="tab-item">
                 <i class="icon ion-android-checkmark-circle"></i> Redeem
             </a>
-            <a ui-sref="app.friends" class="tab-item">
-                <i class="icon ion-android-people"></i> Friends
-            </a>
+            <!--<a class="tab-item" ui-sref="app.friends" class="tab-item">-->
+                <!--<i class="icon ion-android-people"></i> Friends-->
+            <!--</a>-->
 
         </div>
 
@@ -29,7 +46,7 @@
         <div class="list animate-fade-slide-in-right">
 
             <!-- area chart -->
-            <div class="card">
+            <div class="card"  ui-sref="app.track">
                 <!--<div class="item item-divider item-calm">-->
                     <!--<div class="centerfont">-->
                         <!--<i class="icon ion-earth"></i>-->
@@ -47,51 +64,23 @@
                 <!--</div>-->
 
             <!-- area chart -->
-            <div class="card">
-                <div class="item item-divider">
-                    <div class="centerfont">
-                        <!--<i class="icon ion-earth"></i>-->
-                        <h2>Walk your way to Health</h2>
-                    </div>
-                    <div class="centerfont">
-                        <!--<i class="icon ion-earth"></i>-->
-                        <h3>100 steps Left | 200 Point Gained</h3>
-                    </div>
-
-                    <div class="item item-divider ">
-
-                    </div>
-
-                </div>
-                <div class="item item-text-wrap" >
-
-
-                    <highchart config="chartPie" class="Chartcenter"></highchart>
-                    <div class="centerfont">
-                        <!--<i class="icon ion-earth"></i>-->
-                        <h4>Rank: #65</h4>
-                    </div>
-                </div>
-
-            </div>
-            <!-- Pie chart-->
 
 
             <!-- Donut     -->
-            <div class="card">
+            <div ng-controller="ModalCtrl" class="card"   >
                 <!--<div class="item item-divider item-calm">-->
                     <!--<div class="centerfont">-->
                         <!--<i class="icon ion-earth"></i>-->
                     <!--</div>-->
                 <!--</div>-->
-                <div class="item item-divider">
+                <div class="item item-divider" ng-click="modal.show()">
                     <div class="centerfont">
                         <!--<i class="icon ion-earth"></i>-->
                         <h2>Assessments</h2>
                     </div>
                     <div class="centerfont">
                         <!--<i class="icon ion-earth"></i>-->
-                        <h3>1 questionnaire Left | 400 Point Gained</h3>
+                        <h3>2 Questions Left | 400 Point Gained</h3>
                     </div>
 
                     <div class="item item-divider ">
@@ -147,4 +136,84 @@
                 <!--<i class="icon ion-chatbubble muted"></i>-->
             <!--</a>-->
     </ion-content>
+    <script id="templates/modal.html" type="text/ng-template ">
+        <ion-modal-view style="background-image: url('img/prototype/sap_app_bg.jpg');background-size:cover;" >
+            <ion-header-bar class="bar bar-header bar-balanced">
+                <!--<h1 >Group Detail</h1>-->
+                <!--<a class="button icon-left ion-chevron-left button-clear button-dark">Back</a>-->
+                <button class="button icon-left ion-chevron-left button-clear button-dark "  ng-click="modal.hide()"></button>
+            </ion-header-bar>
+
+
+            <ion-content class="padding">
+                <div class="card " ng-controller="NumberCtrl">
+                    <div class="item item-text-wrap">
+                        <strong>Progress:4/6 </strong> 400 points gained
+                    </div>
+                    <div class="item item-divider">
+                    </div>
+                    <div class="item item-text-wrap centerfont">
+                        <h2>Alcohol Use</h2>
+                    </div>
+                    <div class="item item-text-wrap ">
+                        <h3>In a typical week,how many days do you drink alcohol?</h3>
+                    </div>
+                    <div class="tabs tabs-white  static" >
+                        <span ng-repeat="item in collection1"
+                              class="tab-item "
+                              ng-class="{ 'selected-class-name': $index == selectedIndex1 } "
+                              ng-click="itemClicked1($index)">
+                           {{ item }}</span>
+
+                    </div>
+
+
+                    <div class="item item-text-wrap ">
+                        <h3>How many alcohol drinks do you consume per day?</h3>
+                    </div>
+                    <div class="tabs tabs-white  static" >
+                        <span ng-repeat="item in collection2"
+                              class="tab-item "
+                              ng-class="{ 'selected-class-name': $index == selectedIndex2 } "
+                              ng-click="itemClicked2($index)">
+                           {{ item }}</span>
+
+                    </div>
+
+                    <!--<div class="list">-->
+                        <!--<div class="item range range-positive">-->
+                            <!--<i class="icon ion-thumbsdown"></i>-->
+                            <!--<input type="range" name="volume" min="0" max="100" value="33">-->
+                            <!--<i class="icon ion-thumbsup"></i>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+
+
+                <!--<button class="button button-full button-positive" ng-click="modal.hide()">-->
+                    <!--Next-->
+                <!--</button>-->
+
+                <div class="button-bar">
+                    <a class="button  button-dark" ng-click="modal.hide()">Preview</a>
+                    <a class="button  button-positive" ng-click="modal.hide()">Next</a>
+
+                </div>
+                <!--<div class="list">-->
+                <!--<label class="item item-input">-->
+                <!--<span class="input-label">First Name</span>-->
+                <!--<input ng-model="newUser.firstName" type="text">-->
+                <!--</label>-->
+                <!--<label class="item item-input">-->
+                <!--<span class="input-label">Last Name</span>-->
+                <!--<input ng-model="newUser.lastName" type="text">-->
+                <!--</label>-->
+                <!--<label class="item item-input">-->
+                <!--<span class="input-label">Email</span>-->
+                <!--<input ng-model="newUser.email" type="text">-->
+                <!--</label>-->
+                <!--<button class="button button-full button-positive" ng-click="createContact(newUser)">Create</button>-->
+                <!--</div>-->
+            </ion-content>
+        </ion-modal-view>
 </ion-view>

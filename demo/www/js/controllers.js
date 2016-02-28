@@ -108,10 +108,10 @@ angular.module('starter.controllers', [])
     $scope.$parent.setHeaderFab('left');
 
     // Delay expansion
-    $timeout(function() {
-        $scope.isExpanded = true;
-        $scope.$parent.setExpanded(true);
-    }, 300);
+    //$timeout(function() {
+    //    $scope.isExpanded = true;
+    //    $scope.$parent.setExpanded(true);
+    //}, 300);
 
     // Set Motion
     ionicMaterialMotion.fadeSlideInRight();
@@ -129,6 +129,7 @@ angular.module('starter.controllers', [])
     $scope.$parent.setHeaderFab(false);
 
     // Set Motion
+
     $timeout(function() {
         ionicMaterialMotion.slideUp({
             selector: '.slide-up'
@@ -304,7 +305,7 @@ angular.module('starter.controllers', [])
             type: 'pie',
             innerSize: '50%',
             data: [
-                ['Remain', 1],
+                ['Remain', 2],
                 ['Finished', 4]
             ],
             name: 'Assessment ',
@@ -337,7 +338,7 @@ angular.module('starter.controllers', [])
     $scope.$parent.showHeader();
     $scope.$parent.clearFabs();
     $scope.isExpanded = true;
-    $scope.$parent.setExpanded(true);
+    $scope.$parent.setExpanded(false);
     $scope.$parent.setHeaderFab('right');
 
     $timeout(function() {
@@ -372,8 +373,8 @@ angular.module('starter.controllers', [])
 .controller('GalleryCtrl', function($scope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion) {
     $scope.$parent.showHeader();
     $scope.$parent.clearFabs();
-    $scope.isExpanded = true;
-    $scope.$parent.setExpanded(true);
+    $scope.isExpanded = false;
+    $scope.$parent.setExpanded(false);
     $scope.$parent.setHeaderFab(false);
 
     // Activate ink for controller
@@ -387,6 +388,29 @@ angular.module('starter.controllers', [])
     });
 
 })
+
+//    click number
+
+    .controller('NumberCtrl', function($scope) {
+        $scope.collection1 = ["0","1","2", "3","4","5","6","7+"];
+        $scope.collection2 = ["0","1","2", "3","4","5","6","7+"];
+
+        $scope.selectedIndex1 = 3;
+        $scope.selectedIndex2 = 3;
+
+
+        $scope.itemClicked1 = function ($index) {
+            console.log($index);
+            $scope.selectedIndex1 = $index;
+
+        }
+
+        $scope.itemClicked2 = function ($index) {
+            console.log($index);
+            $scope.selectedIndex2 = $index;
+        }
+    })
+
 
 //dash
     .controller('dashCtrl', function($scope) {

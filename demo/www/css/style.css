@@ -261,3 +261,8 @@ p {
 
 
 }
+
+
+.selected-class-name {
+    color: red;
+}

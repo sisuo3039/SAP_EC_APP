@@ -1,16 +1,17 @@
 <ion-view view-title="Redeem" style="background-image: url('img/prototype/sap_app_bg.jpg');background-size:cover;" >
     <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in" >
-        <div class="hero" style="background-image: url('img/prototype/sap_app_bg.jpg');">
+        <div class="hero" style="background-image: url('img/prototype/sap_app_bg.jpg'); ">
             <div class="content">
-                <div class="avatar" style="background-image: url('img/eric.jpg');"></div>
+                <div class="avatar" style="background-image: url('img/eric.png');"></div>
                 <h3><a class="light">Eric Stark</a></h3>
-                <p>S.Crop.,model employee</p>
+                <h5 style="color:slategrey ">Health Score</h5>
+                <p><i class="icon ion-arrow-up-a">20%</i></p>
                 <h4 style="color: #0074d6"> Point 780 |  Program 12 </h4>
             </div>
         </div>
 
 
-        <div class="tabs tabs-balanced tabs-icon-top static" >
+        <div class="tabs  tabs-icon-top static" style="opacity:0.7" >
             <a class="tab-item">
                 <i class="icon ion-cash"></i> Cash
             </a>
@@ -26,7 +27,7 @@
 
         </div>
         <div class="list " >
-            <div class="list">
+            <div class="list" >
 
                 <div ui-sref="app.profile" class="card card-gallery item item-text-wrap">
                     <div class="ink dark-bg">
@@ -34,8 +35,8 @@
                         <h2>Redeem Air Zoom Running Shoes?
                             <strike>120 Point</strike> 100 Point!</h2>
                     </div>
-                    <div class="item tabs tabs-secondary tabs-icon-left">
-                        <a class="tab-item stable-bg assertive">
+                    <div class="item tabs tabs-secondary tabs-icon-left" style="background-color: white">
+                        <a class="tab-item light-bg assertive">
                             <i class="icon ion-heart"></i>
                             4
                         </a>
@@ -51,12 +52,12 @@
                         <img class="full-image" src="img/redeem/yogamat.jpg">
                         <h2>Redeem Yoga Mate? <strike>60 Point</strike> <strong>  40 Point!</strong></h2>
                     </div>
-                    <div class="item tabs tabs-secondary tabs-icon-left">
-                        <a class="tab-item stable-bg assertive">
+                    <div class="item tabs tabs-secondary tabs-icon-left" style="background-color: white">
+                        <a class="tab-item light-bg assertive">
                             <i class="icon ion-heart"></i>
                             6
                         </a>
-                        <a class="tab-item stable-bg positive-900">
+                        <a class="tab-item light-bg positive-900">
                             <i class="icon ion-chatbubbles"></i>
                             1
                         </a>
@@ -66,72 +67,5 @@
         </div>
     </ion-content>
 </ion-view>
-<script id="templates/modal.html" type="text/ng-template ">
-    <ion-modal-view style="background-image: url('img/prototype/sap_app_bg.jpg');background-size:cover;" >
-        <ion-header-bar class="bar bar-header bar-balanced">
-            <!--<h1 >Group Detail</h1>-->
-            <!--<a class="button icon-left ion-chevron-left button-clear button-dark">Back</a>-->
-            <button class="button icon-left ion-chevron-left button-clear button-dark "  ng-click="modal.hide()"></button>
-        </ion-header-bar>
 
-        <ion-content class="padding">
-            <div class="ink dark-bg">
-                <img class="full-image" src="img/redeem/bootcamp.jpg">
-                <!--<h2><strong>Join Bootcamp right now</strong> </h2>-->
-            </div>
-            <div class="card">
-                <div class="item item-text-wrap">
-                    <h2>Walk Your Way to Health</h2>
-                    <h3 class="ink-float">Because of your high risk of<strong> paternity level </strong> submitted a week ago</h3>
-                    <h3>280+ Joined</h3>
-                    <h3 style="border-style: solid" >Jul 20,2015 - Aug 14,2015</h3>
-                </div>
-            </div>
-            <div class="card">
-                <div class="item item-divider" href="#">
-                    <h3>Reviews</h3>
-                </div>
-            </div>
-            <div class="card">
-                <div class="item item-text-wrap" href="#">
-                    <h3>Program Details</h3>
-                    <h4>Hey you - step away from your computer ,smart phone or TV screen and start moving! Compete with others and watch your step count grow.</h4>
-                </div>
-            </div>
-            <div class="card">
-                <div class="item item-text-wrap" href="#">
-                    <h3>Rewards</h3>
-                    <h4>1. 200 points for grand winner.</h4>
-                    <h4>1. 100 points for participants with 100,00 steps.</h4>
-                </div>
-            </div>
-
-            <div class="card">
-
-                <div class="item item-divider">
-                    <h3>Recommended App</h3>
-                </div>
-
-            </div>
-
-            <button class="button button-full button-positive" ng-click="modal.hide()">
-                Join
-            </button>
-            <!--<div class="list">-->
-            <!--<label class="item item-input">-->
-            <!--<span class="input-label">First Name</span>-->
-            <!--<input ng-model="newUser.firstName" type="text">-->
-            <!--</label>-->
-            <!--<label class="item item-input">-->
-            <!--<span class="input-label">Last Name</span>-->
-            <!--<input ng-model="newUser.lastName" type="text">-->
-            <!--</label>-->
-            <!--<label class="item item-input">-->
-            <!--<span class="input-label">Email</span>-->
-            <!--<input ng-model="newUser.email" type="text">-->
-            <!--</label>-->
-            <!--<button class="button button-full button-positive" ng-click="createContact(newUser)">Create</button>-->
-            <!--</div>-->
-        </ion-content>
-    </ion-modal-view>
 </script>

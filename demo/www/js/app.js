@@ -174,14 +174,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
                 templateUrl: 'templates/profile.html',
                 controller: 'ProfileCtrl'
             },
-            'fabContent': {
-                template: '<button id="fab-profile" class="button button-fab button-fab-bottom-right button-energized-900"><i class="icon ion-plus"></i></button>',
-                controller: function ($timeout) {
-                    /*$timeout(function () {
-                        document.getElementById('fab-profile').classList.toggle('on');
-                    }, 800);*/
-                }
-            }
+            //'fabContent': {
+            //    template: '<button id="fab-profile" class="button button-fab button-fab-bottom-right button-energized-900"><i class="icon ion-plus"></i></button>',
+            //    controller: function ($timeout) {
+            //        /*$timeout(function () {
+            //            document.getElementById('fab-profile').classList.toggle('on');
+            //        }, 800);*/
+            //    }
+            //}
         }
     })
         .state('app.track', {

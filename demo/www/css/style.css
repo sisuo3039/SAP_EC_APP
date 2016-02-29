@@ -31,7 +31,7 @@ p {
 }
 
 .menu-open .bar.bar-header.expanded {
-    background-color: #222;
+    background-color: #58a1c7;
 }
 
 .menu h2 {
@@ -265,4 +265,5 @@ p {
 
 .selected-class-name {
     color: red;
+    clear: active;
 }

@@ -251,7 +251,7 @@ angular.module('starter.controllers', [])
             enabled: false
         },
         title: {
-            text: 'Overall exercise level ',
+            text: 'Overall participation level ',
             style: {
                 //color: '#FF00FF',
                 fontSize: '12px'

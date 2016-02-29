@@ -1,7 +1,7 @@
 <ion-view view-title="Home">
     <ion-content ng-class="{expanded:$scope.isExpanded}" style="background-image: url('img/prototype/sap_app_bg.jpg');">
 
-        <div class="tabs tabs-positive tabs-icon-top static" >
+        <div class="tabs tabs-icon-top static" style="opacity: 0.7;">
             <a class="tab-item " ui-sref="app.track" class="tab-item">
                 <i class="icon ion-arrow-graph-up-right"></i> Track
             </a>
@@ -42,7 +42,7 @@
 
 
             <!-- Donut     -->
-            <div ng-controller="ModalCtrl" class="card"   >
+            <div ng-controller="ModalCtrl" class="card" style="opacity:1"   >
                 <!--<div class="item item-divider item-calm">-->
                     <!--<div class="centerfont">-->
                         <!--<i class="icon ion-earth"></i>-->
@@ -56,10 +56,6 @@
                     <div class="centerfont">
                         <!--<i class="icon ion-earth"></i>-->
                         <h3>2 Questions Left | 400 Point Gained</h3>
-                    </div>
-
-                    <div class="item item-divider ">
-
                     </div>
 
                 </div>

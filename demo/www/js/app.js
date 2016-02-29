@@ -201,6 +201,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
                 //}
             }
         })
+        .state('app.assessment', {
+            url: '/track',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/assessment.html',
+                    controller: 'ProfileCtrl'
+                }
+                //'fabContent': {
+                //    template: '<button id="fab-profile" class="button button-fab button-fab-bottom-right button-energized-900"><i class="icon ion-plus"></i></button>',
+                //    controller: function ($timeout) {
+                //        /*$timeout(function () {
+                //         document.getElementById('fab-profile').classList.toggle('on');
+                //         }, 800);*/
+                //    }
+                //}
+            }
+        })
 
         .state('app.join', {
             url: '/join',

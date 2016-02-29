@@ -120,7 +120,7 @@
             </ion-header-bar>
 
 
-            <ion-content class="padding">
+            <ion-content class="padding" style="position: relative;top: 30px;">
                 <div class="card " ng-controller="NumberCtrl">
                     <div class="item item-text-wrap">
                         <strong>Progress:4/6 </strong> 400 points gained
@@ -171,9 +171,74 @@
 
                 <div class="button-bar">
                     <a class="button  button-dark" ng-click="modal.hide()">Preview</a>
-                    <a class="button  button-balanced" ng-click="modal.hide()">Next</a>
+                    <a ui-sref="app.assessment"  class="button  button-balanced" ng-click="modal.hide()">Next</a>
 
                 </div>
             </ion-content>
         </ion-modal-view>
+        </script>
+    <!--add this as first modal questionares -->
+    <script id="templates/modal2.html" type="text/ng-template ">
+        <ion-modal-view style="background-image: url('img/prototype/sap_app_bg.jpg');background-size:cover;" >
+            <ion-header-bar class="bar bar-header bar-balanced">
+                <!--<h1 >Group Detail</h1>-->
+                <!--<a class="button icon-left ion-chevron-left button-clear button-dark">Back</a>-->
+                <button class="button icon-left ion-chevron-left button-clear button-dark "  ng-click="modal.hide()"></button>
+            </ion-header-bar>
+            <ion-content class="padding" style="position: relative;top: 30px;">
+                <div class="card " ng-controller="NumberCtrl">
+                    <div class="item item-text-wrap">
+                        <strong>Progress:4/6 </strong> 400 points gained
+                    </div>
+                    <div class="item item-divider">
+                    </div>
+                    <div class="item item-text-wrap centerfont">
+                        <h2>1. What’s your recent heart rate history?</h2>
+                    </div>
+                    <div class="item item-text-wrap ">
+                        <h3>In a typical week,how many days do you drink alcohol?</h3>
+                    </div>
+                    <div class="tabs tabs-white  static" >
+                        <span ng-repeat="item in collection1"
+                              class="tab-item "
+                              ng-class="{ 'selected-class-name': $index == selectedIndex1 } "
+                              ng-click="itemClicked1($index)">
+                           {{ item }}</span>
+
+                    </div>
+
+
+                    <div class="item item-text-wrap ">
+                        <h3>How many alcohol drinks do you consume per day?</h3>
+                    </div>
+                    <div class="tabs tabs-white  static" >
+                        <span ng-repeat="item in collection2"
+                              class="tab-item "
+                              ng-class="{ 'selected-class-name': $index == selectedIndex2 } "
+                              ng-click="itemClicked2($index)">
+                           {{ item }}</span>
+
+                    </div>
+
+                    <!--<div class="list">-->
+                    <!--<div class="item range range-positive">-->
+                    <!--<i class="icon ion-thumbsdown"></i>-->
+                    <!--<input type="range" name="volume" min="0" max="100" value="33">-->
+                    <!--<i class="icon ion-thumbsup"></i>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                </div>
+
+
+                <!--<button class="button button-full button-positive" ng-click="modal.hide()">-->
+                <!--Next-->
+                <!--</button>-->
+
+                <div class="button-bar" g-controller="ModalCtrl">
+                    <a  class="button  button-balanced" ng-click="modal.show()">Next</a>
+
+                </div>
+            </ion-content>
+        </ion-modal-view>
+    </script>
 </ion-view>

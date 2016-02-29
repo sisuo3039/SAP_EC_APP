@@ -1,0 +1,41 @@
+<ion-view view-title="Assessments result">
+    <ion-content ng-class="{expanded:$scope.isExpanded}" class="padding" style="background-image: url('img/prototype/sap_app_bg.jpg');">
+
+
+            <div class="card">
+                <div class="item item-text-wrap centerfont">
+                   <h3><strong>Moderate Health </strong></h3>
+                </div>
+                <div class="item item-text-wrap centerfont">
+                    <h2><strong>48</strong></h2>
+                </div>
+                <div class="list">
+                    <div class="item range range-positive">
+                        <i class="icon ion-thumbsdown"></i>
+                        <input type="range" name="volume" min="0" max="100" value="48">
+                        <i class="icon ion-thumbsup"></i>
+                    </div>
+                </div>
+                <div class="item item-text-wrap">
+                    <h2 class="centerfont">My Risks</h2>
+                    <a class="item item-icon-left item-text-wrap item-icon-right" >
+                        <i class="icon ion-ios-bookmarks"></i>
+                        <h3>Obesity</h3>
+                        <h4><strong>Your Risk: </strong> 45%</h4>
+                        <i class="icon ion-arrow-up-a">5%</i>
+                    </a>
+                    <a class="item item-icon-left item-text-wrap item-icon-right" >
+                        <i class="icon ion-ios-bookmarks"></i>
+                        <h3>Anxiety Disorder</h3>
+                        <h4><strong>Your Risk: </strong> 28%</h4>
+                        <i class="icon ion-arrow-up-a">3%</i>
+                    </a>
+                </div>
+
+            </div>
+            <div class="button-bar">
+                <a ui-sref="app.gallery" class="button  button-balanced"  >Explore programs</a>
+
+            </div>
+        </ion-content>
+    </ion-view>

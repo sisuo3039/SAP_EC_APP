@@ -23,7 +23,10 @@ p {
     height: 100%;
 }
 
-
+.bar-header{
+    background-color:#4BC2AF; !important;
+    opacity: 0.8;!important;
+}
 /* Menu
 ==================================*/
 .menu .bar.bar-header.expanded {

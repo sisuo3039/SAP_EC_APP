@@ -128,6 +128,20 @@ angular.module('starter.controllers', [])
     $scope.$parent.setExpanded(false);
     $scope.$parent.setHeaderFab(false);
 
+    // Set click
+    $scope.imageUrl = '';
+    $scope.word = "Skip"
+
+    $scope.onTap = function() {
+        //$ionicLoading.show({
+        //        template:'<div class="loader"><svg class="circular"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>'
+        //});
+
+        $scope.imageUrl = "img/prototype/heart_rate.png" ;
+        $scope.word = "Next" ;
+
+    };
+
     // Set Motion
 
     $timeout(function() {

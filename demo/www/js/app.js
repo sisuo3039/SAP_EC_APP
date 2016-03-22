@@ -4,9 +4,9 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'ionMdInput','highcharts-ng'])
+angular.module('starter', ['ionic','ngCordova', 'starter.controllers', 'ionic-material', 'ionMdInput','highcharts-ng'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,$cordovaHealthKit) {
     $ionicPlatform.ready(function() {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -17,9 +17,30 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
             // org.apache.cordova.statusbar required
             StatusBar.styleDefault();
         }
+        $cordovaHealthKit.isAvailable().then(function () {
+            // HK is available
+            var permissions = ['HKQuantityTypeIdentifierHeight',
+                               'HKQuantityTypeIdentifierHeartRate',
+                               'HKQuantityTypeIdentifierStepCount'
+            ];
+
+            $cordovaHealthKit.requestAuthorization(
+                permissions, // Read permission
+                permissions // Write permission
+            ).then(function (success) {
+                // store that you have permissions
+            }, function (err) {
+                // handle error
+            });
+
+        }, function (no) {
+            // No HK available
+        });
     });
 })
-
+    .config(function ($sceDelegateProvider) {
+        $sceDelegateProvider.resourceUrlWhitelist(['self', new RegExp('^(http[s]?):\/\/(w{3}.)?youtube\.com/.+$')]);
+    })
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
     // Turn off caching for demo simplicity's sake
@@ -223,7 +244,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
             views: {
                 'menuContent': {
                     templateUrl: 'templates/assessment1.html',
-                    controller: 'ProfileCtrl'
+                    controller: 'Assessment1Ctrl'
                 }
                 //'fabContent': {
                 //    template: '<button id="fab-profile" class="button button-fab button-fab-bottom-right button-energized-900"><i class="icon ion-plus"></i></button>',

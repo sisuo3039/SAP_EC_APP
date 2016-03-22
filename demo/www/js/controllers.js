@@ -86,12 +86,31 @@ angular.module('starter.controllers', [])
         }
     };
 })
-    .controller('BackCtrl', function($scope, $timeout, $stateParams, ionicMaterialInk) {
+    .controller('BackCtrl', function($scope, $timeout, $stateParams, ionicMaterialInk,$cordovaHealthKit) {
         $scope.$parent.clearFabs();
         $timeout(function() {
             $scope.$parent.hideHeader();
         }, 0);
         ionicMaterialInk.displayEffect();
+        $scope.saveWorkout = function () {
+            $cordovaHealthKit.saveWorkout(
+                {
+                    'activityType': 'HKWorkoutActivityTypeCycling',
+                    'quantityType': 'HKQuantityTypeIdentifierStepCount',
+                    'startDate': new Date(), // now
+                    'endDate': null, // not needed when using duration
+                    'duration': 6000, //in seconds
+                    'energy': 400, //
+                    'energyUnit': 'kcal', // J|cal|kcal
+                    'distance': 5, // optional
+                    'distanceUnit': 'km'
+                }
+            ).then(function (v) {
+                // alert(JSON.stringify(v));
+            }, function (err) {
+                console.log(err);
+            });
+        };
     })
 .controller('LoginCtrl', function($scope, $timeout, $stateParams, ionicMaterialInk) {
     $scope.$parent.clearFabs();
@@ -225,7 +244,7 @@ angular.module('starter.controllers', [])
         xAxis: {
 
 
-            categories: ['10 jan','11 jan','12 jan','13 jan','14 jan','15 jan'],
+            categories: ['17 Mar','18 Mar','19 Mar','20 Mar','21 Mar','22 Mar'],
             title: {
                 text: ''
             },
@@ -348,6 +367,268 @@ angular.module('starter.controllers', [])
 
 })
 
+    .controller('Assessment1Ctrl', function($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk,$cordovaHealthKit,$http) {
+        // Set Header
+        $scope.$parent.showHeader();
+        $scope.$parent.clearFabs();
+        $scope.isExpanded = false;
+        $scope.$parent.setExpanded(false);
+        $scope.$parent.setHeaderFab(false);
+
+        // Set click
+        $scope.imageUrl = '';
+        $scope.word = "Skip"
+
+        $scope.onTap = function() {
+            //$ionicLoading.show({
+            //        template:'<div class="loader"><svg class="circular"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>'
+            //});
+
+            $scope.imageUrl = "img/prototype/heart_rate.png" ;
+            $scope.word = "Next" ;
+
+        };
+
+        // Set Motion
+
+        $timeout(function() {
+            ionicMaterialMotion.slideUp({
+                selector: '.slide-up'
+            });
+        }, 300);
+
+        $timeout(function() {
+            ionicMaterialMotion.fadeSlideInRight({
+                startVelocity: 3000
+            });
+        }, 700);
+
+        $scope.body = {
+            height: ''
+        };
+
+
+        $scope.saveHeight = function () {
+            $cordovaHealthKit.saveHeight($scope.body.height, 'cm').then(function (v) {
+            }, function (err) {
+                console.log(err);
+            });
+        };
+        // $scope.readHeartrate = function () {
+        //     $cordovaHealthKit.readHeartrate()
+        //     $cordovaHealthKit.saveHeight($scope.body.height, 'cm').then(function (v) {
+        //     }, function (err) {
+        //         console.log(err);
+        //     });
+        // };
+
+        $scope.getHeight = function () {
+            $cordovaHealthKit.readHeight('cm').then(function (v) {
+                alert('Your height: ' + v.value + " " + v.unit);
+            }, function (err) {
+                console.log(err);
+            });
+        };
+
+        $scope.saveWorkout = function () {
+            $cordovaHealthKit.saveWorkout(
+                {
+                    'activityType': 'HKWorkoutActivityTypeCycling',
+                    'quantityType': 'HKQuantityTypeIdentifierDistanceCycling',
+                    'startDate': new Date(), // now
+                    'endDate': null, // not needed when using duration
+                    'duration': 6000, //in seconds
+                    'energy': 400, //
+                    'energyUnit': 'kcal', // J|cal|kcal
+                    'distance': 5, // optional
+                    'distanceUnit': 'km'
+                }
+            ).then(function (v) {
+                alert(JSON.stringify(v));
+            }, function (err) {
+                console.log(err);
+            });
+        };
+        // $scope.submit=function(){
+        //   var link="http://test.com";
+        //   $http.post(link,{{userID:'I844071'},v})
+        // }
+
+        $scope.getWorkouts = function () {
+            $cordovaHealthKit.findWorkouts().then(function (v) {
+                // alert(JSON.stringify(v));
+                //$scope.collection=v;
+                $scope.collection = Object.keys(v).map(function(k) { return v[k] });
+                // $scope.submit=function(){
+                var link="https://sapiotbcdfb1bb3.us1.hana.ondemand.com/sap/path_to_wellness/services/ptw.xsjs";
+                $http.post(link,{Action:"uploadActivities",UserID:"I844071",Data:(v)}).then(function (res) {
+                    $scope.response=res.data;
+                   // console.log(res.data);
+                    $scope.chartarea = {
+                        options: {
+                            chart: {
+                                type: 'area',
+                                inverted: false,
+                                zoomType: 'xy',
+
+                                height: 200,
+                            },
+                            plotOptions: {
+
+                                series: {
+                                    cursor: 'pointer',
+                                    column :{
+                                        size: '30%',
+                                    },
+
+                                }
+                            },
+                            colors: ['#40bb68','#058dc7' ]
+                        },
+
+                        xAxis: {
+
+
+                            categories: ['17 Mar','18 Mar','19 Mar','20 Mar','21 Mar','22 Mar'],
+                            title: {
+                                text: ''
+                            },
+                            labels: {
+                                rotation: -90,
+                                style: {
+                                    fontSize: '12px',
+                                }
+                            }
+
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Heat rate history',
+                                align: 'high'
+                            },
+                            labels: {
+                                overflow: 'justify'
+                            }
+                        },
+                        tooltip: {
+                            valueSuffix: ' '
+                        },
+
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'top',
+
+                            floating: false,
+                            borderWidth: 1,
+                            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                            shadow: true
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        title: {
+                            text: 'Heat rate history',
+                            style: {
+                                //color: '#FF00FF',
+                                fontSize: '12px'
+                            },
+                        },
+
+                        series: [ {
+                            name: 'Average Heart rate',
+                            data: [95,93,85,76,80,74],
+                        } ],
+                        loading : false
+
+                    }
+                })
+                // };
+            }, function (err) {
+                console.log(err);
+
+            });
+        };
+        $scope.chartarea = {
+            options: {
+                chart: {
+                    type: 'area',
+                    inverted: false,
+                    zoomType: 'xy',
+
+                    height: 200,
+                },
+                plotOptions: {
+
+                    series: {
+                        cursor: 'pointer',
+                        column :{
+                            size: '30%',
+                        },
+
+                    }
+                },
+                colors: ['#40bb68','#058dc7' ]
+            },
+
+            xAxis: {
+
+
+                categories: ['17 Mar','18 Mar','19 Mar','20 Mar','21 Mar','22 Mar'],
+                title: {
+                    text: ''
+                },
+                labels: {
+                    rotation: -90,
+                    style: {
+                        fontSize: '12px',
+                    }
+                }
+
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Heat rate history',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            tooltip: {
+                valueSuffix: ' '
+            },
+
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+
+                floating: false,
+                borderWidth: 1,
+                backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            title: {
+                text: 'Heat rate history',
+                style: {
+                    //color: '#FF00FF',
+                    fontSize: '12px'
+                },
+            },
+
+            series: [  ],
+            loading : false
+
+        }
+
+
+    })
 .controller('ActivityCtrl', function($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
     $scope.$parent.showHeader();
     $scope.$parent.clearFabs();
@@ -517,7 +798,7 @@ angular.module('starter.controllers', [])
             xAxis: {
 
 
-                categories: ['10 jan','11 jan','12 jan','13 jan','14 jan','15 jan'],
+                categories: ['17 Mar','18 Mar','19 Mar','20 Mar','21 Mar','22 Mar'],
                 title: {
                     text: ''
                 },

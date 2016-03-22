@@ -12,8 +12,33 @@
 
                 <div class="col " style="position:relative;top: 40px;;">
 
-                    <button on-tap="onTap()" class="button button-balanced button-raised icon-right" data-ink-color="#CD3385" data-ink-opacity=".8">Retrieve from Apple Watch</button>
-                    <img ng-src="{{ imageUrl }}" style="position: relative ;top: 20px;"/>
+                    <!--<button on-tap="onTap()" class="button button-balanced button-raised icon-right" data-ink-color="#CD3385" data-ink-opacity=".8">Retrieve from Apple Watch</button>-->
+                    <!--<img ng-src="{{ imageUrl }}" style="position: relative ;top: 20px;"/>-->
+                    <!-- Workout -->
+                    <!--<button class="button button-positive" ng-click="saveWorkout()">Set a Workout</button>-->
+                    <button class="button button-positive" ng-click="getWorkouts()">Get Latest Trend</button>
+                    <div class="card"  ui-sref="app.track">
+                        <div class="item item-text-wrap" style="padding-bottom:0px;padding-top:0px">
+                            <highchart config="chartarea" class="Chartcenter"></highchart>
+
+                        </div>
+                    </div>
+
+
+                    <!--<div  class="card item-text-wrap" ng-repeat="item in collection">-->
+                        <!--UserID:I844071<br>-->
+                        <!--&lt;!&ndash;UUID:{{item.UUID}}<br>&ndash;&gt;-->
+                        <!--&lt;!&ndash;From:{{item.startDate}}<br>&ndash;&gt;-->
+                        <!--&lt;!&ndash;To:{{item.endDate}}<br>&ndash;&gt;-->
+                        <!--Duration : {{item.duration}} seconds<br>-->
+                        <!--Miles:{{item.miles}}<br>-->
+                        <!--Step:{{item.miles*2067}}-->
+                        <!--Calories:{{item.calories}}<br>-->
+                        <!--Activity Type:{{item.activityType}}<br>-->
+                        <!--&lt;!&ndash;Source:{{item.sourceName}}  <br> &ndash;&gt;-->
+                        <!--Source:Apple HealthKit-->
+                    <!--</div>-->
+
 
                 </div>
             </div>
